@@ -1,0 +1,6 @@
+D:\VS 2012 Projects\WebServiceGeneratorAddIn\WebServiceGeneratorAddIn\bin\Debug\WebServiceGeneratorAddIn.dll
+D:\VS 2012 Projects\WebServiceGeneratorAddIn\WebServiceGeneratorAddIn\bin\Debug\WebServiceGeneratorAddIn.pdb
+D:\VS 2012 Projects\WebServiceGeneratorAddIn\WebServiceGeneratorAddIn\bin\Debug\WebServiceGeneratorAddIn.xml
+D:\VS 2012 Projects\WebServiceGeneratorAddIn\WebServiceGeneratorAddIn\obj\Debug\WebServiceGeneratorAddIn.csproj.ResolveComReference.cache
+D:\VS 2012 Projects\WebServiceGeneratorAddIn\WebServiceGeneratorAddIn\obj\Debug\WebServiceGeneratorAddIn.dll
+D:\VS 2012 Projects\WebServiceGeneratorAddIn\WebServiceGeneratorAddIn\obj\Debug\WebServiceGeneratorAddIn.pdb
