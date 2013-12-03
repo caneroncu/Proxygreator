@@ -45,6 +45,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="VSLangProj, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
@@ -120,6 +121,12 @@
       <Link>WebServiceGeneratorAddIn - For Testing.AddIn</Link>
     </Content>
     <Content Include="WebServiceGeneratorAddIn.AddIn" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\WebServiceGenerator\WebServiceGenerator\WebServiceGenerator.csproj">
+      <Project>{b69f0635-2306-4857-b482-8bcb2f0695ff}</Project>
+      <Name>WebServiceGenerator</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.Targets" />
   <PropertyGroup>

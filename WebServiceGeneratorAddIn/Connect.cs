@@ -7,6 +7,10 @@ using System.Resources;
 using System.Reflection;
 using System.Globalization;
 using VSLangProj;
+using WSDLToWebService;
+using System.Web.Services;
+using System.Web.Services.Description;
+using System.IO;
 
 namespace WebServiceGeneratorAddIn
 {
@@ -71,13 +75,36 @@ namespace WebServiceGeneratorAddIn
             string solutionName = "TestSolution";
             string projectName = "TestProject";
             string templatePath = @"D:\TempProjectTemplates\Web\1033\WebServiceProject\WebServiceProject.vstemplate";
+            string projectPath = solutionPath + projectName;
+            string interfaceName = null;
+            Project project = null;
+
+            //Belirtilen path'te klasör varsa klasörü ve içini sil
+            if (Directory.Exists(solutionPath))
+            {
+                Directory.Delete(solutionPath, true);
+            }
 
             Solution solution = _applicationObject.Solution;
-            //Solution'u oluştur ve kaydet
             solution.Create(solutionPath, solutionName);
-            solution.SaveAs(solutionName);
             //Projenin eklenmesi - template baz alınarak
-            solution.AddFromTemplate(templatePath, solutionPath + projectName, projectName, false);
+            solution.AddFromTemplate(templatePath, projectPath, projectName, false);
+            //Eklenen projeyi çek
+            project = solution.Projects.Item(1);
+            solution.SaveAs(solutionName);
+
+            string wsdlAddress = "http://www.webservicex.com/globalweather.asmx?WSDL";
+            ServiceDescription sd = WebServiceGenerator.GetServiceDescription(new Uri(wsdlAddress));
+
+            //Interface adı I<ServisAdı> olarak çıkıyor, kaydederken extension'u da ekliyoruz
+            interfaceName = "I" + sd.Bindings[0].Name + ".cs";
+
+            string interfaceFullPath = projectPath + "\\" + interfaceName;
+
+            WebServiceGenerator.Generate(sd, interfaceFullPath);
+            
+            ProjectItems projectItems = project.ProjectItems;
+            projectItems.AddFromFile(interfaceFullPath);
         }
 
         /// <summary>Implements the OnDisconnection method of the IDTExtensibility2 interface. Receives notification that the Add-in is being unloaded.</summary>
