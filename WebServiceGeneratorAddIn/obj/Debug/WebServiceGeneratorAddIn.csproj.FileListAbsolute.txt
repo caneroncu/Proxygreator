@@ -7,3 +7,5 @@ D:\VS 2012 Projects\WebServiceGeneratorAddIn\WebServiceGeneratorAddIn\obj\Debug\
 D:\VS 2012 Projects\WebServiceGeneratorAddIn\WebServiceGeneratorAddIn\obj\Debug\WebServiceGeneratorAddIn.csprojResolveAssemblyReference.cache
 D:\VS 2012 Projects\WebServiceGeneratorAddIn\WebServiceGeneratorAddIn\bin\Debug\WebServiceGenerator.pdb
 D:\VS 2012 Projects\WebServiceGeneratorAddIn\WebServiceGeneratorAddIn\bin\Debug\WebServiceGenerator.dll
+D:\VS 2012 Projects\WebServiceGeneratorAddIn\WebServiceGeneratorAddIn\obj\Debug\WebServiceGeneratorAddIn.UI.FrmProjectParams.resources
+D:\VS 2012 Projects\WebServiceGeneratorAddIn\WebServiceGeneratorAddIn\obj\Debug\WebServiceGeneratorAddIn.csproj.GenerateResource.Cache

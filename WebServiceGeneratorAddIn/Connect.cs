@@ -11,6 +11,7 @@ using WSDLToWebService;
 using System.Web.Services;
 using System.Web.Services.Description;
 using System.IO;
+using WebServiceGeneratorAddIn.UI;
 
 namespace WebServiceGeneratorAddIn
 {
@@ -71,10 +72,20 @@ namespace WebServiceGeneratorAddIn
             }
             #endregion
 
-            string solutionPath = @"D:\Test\";
-            string solutionName = "TestSolution";
-            string projectName = "TestProject";
-            string templatePath = @"D:\TempProjectTemplates\Web\1033\WebServiceProject\WebServiceProject.vstemplate";
+            FrmProjectParams frmProjectParams = new FrmProjectParams(this);
+            frmProjectParams.ShowDialog();
+        }
+
+        /// <summary>
+        /// Verilen parametrelere göre otomatik olarak Web Service Solution'ı oluşturur.
+        /// </summary>
+        /// <param name="wsdlAddress"></param>
+        /// <param name="solutionPath"></param>
+        /// <param name="solutionName"></param>
+        /// <param name="projectName"></param>
+        /// <param name="templatePath"></param>
+        public void GenerateWebService(string wsdlAddress, string solutionPath, string solutionName, string projectName, string templatePath)
+        {
             string projectPath = solutionPath + projectName;
             string interfaceName = null;
             string interfaceExtension = null;
@@ -93,8 +104,7 @@ namespace WebServiceGeneratorAddIn
             //Eklenen projeyi çek
             project = solution.Projects.Item(1);
             solution.SaveAs(solutionName);
-
-            string wsdlAddress = "http://www.webservicex.com/globalweather.asmx?WSDL";
+            
             ServiceDescription sd = WebServiceGenerator.GetServiceDescription(new Uri(wsdlAddress));
 
             //Interface adı I<ServisAdı> olarak çıkıyor, kaydederken extension'u da ekliyoruz
@@ -104,17 +114,17 @@ namespace WebServiceGeneratorAddIn
             string interfaceFullPath = string.Format(@"{0}\{1}{2}", projectPath, interfaceName, interfaceExtension);
 
             WebServiceGenerator.Generate(sd, interfaceFullPath);
-            
+
             ProjectItems projectItems = project.ProjectItems;
             projectItems.AddFromFile(interfaceFullPath);
 
-            _implementInterface(project, interfaceName);
+            ImplementInterface(project, interfaceName);
 
             //Proje değişikliklerini kaydet
             project.Save();
         }
 
-        private void _implementInterface(Project project, string interfaceName)
+        private void ImplementInterface(Project project, string interfaceName)
         {
             CodeElements elements = _applicationObject.ActiveDocument.ProjectItem.FileCodeModel.CodeElements;
 

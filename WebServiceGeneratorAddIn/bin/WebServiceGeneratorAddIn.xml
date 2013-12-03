@@ -18,6 +18,16 @@
             <param term='addInInst'>Object representing this Add-in.</param>
             <seealso class='IDTExtensibility2' />
         </member>
+        <member name="M:WebServiceGeneratorAddIn.Connect.GenerateWebService(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Verilen parametrelere göre otomatik olarak Web Service Solution'ı oluşturur.
+            </summary>
+            <param name="wsdlAddress"></param>
+            <param name="solutionPath"></param>
+            <param name="solutionName"></param>
+            <param name="projectName"></param>
+            <param name="templatePath"></param>
+        </member>
         <member name="M:WebServiceGeneratorAddIn.Connect.OnDisconnection(Extensibility.ext_DisconnectMode,System.Array@)">
             <summary>Implements the OnDisconnection method of the IDTExtensibility2 interface. Receives notification that the Add-in is being unloaded.</summary>
             <param term='disconnectMode'>Describes how the Add-in is being unloaded.</param>
@@ -55,6 +65,34 @@
             <param term='varOut'>Parameters passed from the command handler to the caller.</param>
             <param term='handled'>Informs the caller if the command was handled or not.</param>
             <seealso class='Exec' />
+        </member>
+        <member name="T:WebServiceGeneratorAddIn.UI.FrmProjectParams">
+            <summary>
+            Add-In'in alacağı parametreleri sağlayan UI
+            </summary>
+        </member>
+        <member name="M:WebServiceGeneratorAddIn.UI.FrmProjectParams.#ctor(WebServiceGeneratorAddIn.Connect)">
+            <summary>
+            Parametre olarak Add-In'e ait olan objeyi alır
+            </summary>
+            <param name="addIn"></param>
+        </member>
+        <member name="F:WebServiceGeneratorAddIn.UI.FrmProjectParams.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:WebServiceGeneratorAddIn.UI.FrmProjectParams.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:WebServiceGeneratorAddIn.UI.FrmProjectParams.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
         </member>
     </members>
 </doc>

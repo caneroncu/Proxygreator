@@ -45,7 +45,9 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="VSLangProj, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
@@ -58,6 +60,12 @@
     </Compile>
     <Compile Include="Connect.cs">
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UI\FrmProjectParams.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmProjectParams.Designer.cs">
+      <DependentUpon>FrmProjectParams.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -127,6 +135,11 @@
       <Project>{b69f0635-2306-4857-b482-8bcb2f0695ff}</Project>
       <Name>WebServiceGenerator</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="UI\FrmProjectParams.resx">
+      <DependentUpon>FrmProjectParams.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.Targets" />
   <PropertyGroup>
