@@ -55,7 +55,7 @@
             this.tbSolutionPath.Location = new System.Drawing.Point(30, 87);
             this.tbSolutionPath.Name = "tbSolutionPath";
             this.tbSolutionPath.Size = new System.Drawing.Size(397, 20);
-            this.tbSolutionPath.TabIndex = 1;
+            this.tbSolutionPath.TabIndex = 2;
             // 
             // tbSolutionName
             // 
@@ -78,7 +78,7 @@
             this.tbProjectName.Location = new System.Drawing.Point(30, 200);
             this.tbProjectName.Name = "tbProjectName";
             this.tbProjectName.Size = new System.Drawing.Size(397, 20);
-            this.tbProjectName.TabIndex = 5;
+            this.tbProjectName.TabIndex = 4;
             // 
             // lblProjectName
             // 
@@ -94,7 +94,7 @@
             this.tbTemplatePath.Location = new System.Drawing.Point(30, 259);
             this.tbTemplatePath.Name = "tbTemplatePath";
             this.tbTemplatePath.Size = new System.Drawing.Size(397, 20);
-            this.tbTemplatePath.TabIndex = 7;
+            this.tbTemplatePath.TabIndex = 5;
             // 
             // lblTemplatePath
             // 
@@ -110,7 +110,7 @@
             this.btnGenerate.Location = new System.Drawing.Point(352, 311);
             this.btnGenerate.Name = "btnGenerate";
             this.btnGenerate.Size = new System.Drawing.Size(75, 23);
-            this.btnGenerate.TabIndex = 8;
+            this.btnGenerate.TabIndex = 6;
             this.btnGenerate.Text = "Generate";
             this.btnGenerate.UseVisualStyleBackColor = true;
             this.btnGenerate.Click += new System.EventHandler(this.btnGenerate_Click);
@@ -120,7 +120,7 @@
             this.tbWsdlAddress.Location = new System.Drawing.Point(30, 34);
             this.tbWsdlAddress.Name = "tbWsdlAddress";
             this.tbWsdlAddress.Size = new System.Drawing.Size(397, 20);
-            this.tbWsdlAddress.TabIndex = 10;
+            this.tbWsdlAddress.TabIndex = 1;
             // 
             // lblWsdlAddress
             // 
@@ -131,7 +131,7 @@
             this.lblWsdlAddress.TabIndex = 9;
             this.lblWsdlAddress.Text = "WSDL Address";
             // 
-            // frmProjectParams
+            // FrmProjectParams
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -147,7 +147,7 @@
             this.Controls.Add(this.lblSolutionName);
             this.Controls.Add(this.tbSolutionPath);
             this.Controls.Add(this.lblSolutionPath);
-            this.Name = "frmProjectParams";
+            this.Name = "FrmProjectParams";
             this.Text = "Web Service Generator";
             this.ResumeLayout(false);
             this.PerformLayout();
