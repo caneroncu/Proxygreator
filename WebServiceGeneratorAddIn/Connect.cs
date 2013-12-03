@@ -36,11 +36,13 @@ namespace WebServiceGeneratorAddIn
 
             //Tools tabına Add-In'i ekleme işlemleri
             #region ADD_IT_TO_TOOLS
+            string addonDisplayName = "Web Service Generator";
+            string toolsMenuName = "Tools";
+
             if (connectMode == ext_ConnectMode.ext_cm_UISetup)
             {
                 object[] contextGUIDS = new object[] { };
                 Commands2 commands = (Commands2)_applicationObject.Commands;
-                string toolsMenuName = "Tools";
 
                 //Place the command on the tools menu.
                 //Find the MenuBar command bar, which is the top-level command bar holding all the main menu items:
@@ -55,7 +57,7 @@ namespace WebServiceGeneratorAddIn
                 try
                 {
                     //Add a command to the Commands collection:
-                    Command command = commands.AddNamedCommand2(_addInInstance, "WebServiceGeneratorAddIn", "WebServiceGeneratorAddIn", "Executes the command for WebServiceGeneratorAddIn", true, 59, ref contextGUIDS, (int)vsCommandStatus.vsCommandStatusSupported + (int)vsCommandStatus.vsCommandStatusEnabled, (int)vsCommandStyle.vsCommandStylePictAndText, vsCommandControlType.vsCommandControlTypeButton);
+                    Command command = commands.AddNamedCommand2(_addInInstance, "WebServiceGeneratorAddIn", addonDisplayName, "Executes the command for " + addonDisplayName, true, 59, ref contextGUIDS, (int)vsCommandStatus.vsCommandStatusSupported + (int)vsCommandStatus.vsCommandStatusEnabled, (int)vsCommandStyle.vsCommandStylePictAndText, vsCommandControlType.vsCommandControlTypeButton);
 
                     //Add a control for the command to the tools menu:
                     if ((command != null) && (toolsPopup != null))
@@ -104,7 +106,7 @@ namespace WebServiceGeneratorAddIn
             //Eklenen projeyi çek
             project = solution.Projects.Item(1);
             solution.SaveAs(solutionName);
-            
+
             ServiceDescription sd = WebServiceGenerator.GetServiceDescription(new Uri(wsdlAddress));
 
             //Interface adı I<ServisAdı> olarak çıkıyor, kaydederken extension'u da ekliyoruz
@@ -118,16 +120,17 @@ namespace WebServiceGeneratorAddIn
             ProjectItems projectItems = project.ProjectItems;
             projectItems.AddFromFile(interfaceFullPath);
 
-            ImplementInterface(project, interfaceName);
+            implementInterface(project, interfaceName);
 
             //Proje değişikliklerini kaydet
             project.Save();
         }
 
-        private void ImplementInterface(Project project, string interfaceName)
+        private void implementInterface(Project project, string interfaceName)
         {
             CodeElements elements = _applicationObject.ActiveDocument.ProjectItem.FileCodeModel.CodeElements;
 
+            //Class : interfaceName yapılacak kodu bul ve bunu ekle
             foreach (CodeElement element in elements)
             {
                 if (element.Kind == vsCMElement.vsCMElementNamespace)

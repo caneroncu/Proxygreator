@@ -147,7 +147,13 @@
             this.Controls.Add(this.lblSolutionName);
             this.Controls.Add(this.tbSolutionPath);
             this.Controls.Add(this.lblSolutionPath);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmProjectParams";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Web Service Generator";
             this.ResumeLayout(false);
             this.PerformLayout();
