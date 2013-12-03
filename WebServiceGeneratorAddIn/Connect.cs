@@ -77,6 +77,7 @@ namespace WebServiceGeneratorAddIn
             string templatePath = @"D:\TempProjectTemplates\Web\1033\WebServiceProject\WebServiceProject.vstemplate";
             string projectPath = solutionPath + projectName;
             string interfaceName = null;
+            string interfaceExtension = null;
             Project project = null;
 
             //Belirtilen path'te klasör varsa klasörü ve içini sil
@@ -97,14 +98,40 @@ namespace WebServiceGeneratorAddIn
             ServiceDescription sd = WebServiceGenerator.GetServiceDescription(new Uri(wsdlAddress));
 
             //Interface adı I<ServisAdı> olarak çıkıyor, kaydederken extension'u da ekliyoruz
-            interfaceName = "I" + sd.Bindings[0].Name + ".cs";
+            interfaceName = string.Format("I{0}", sd.Bindings[0].Name);
+            interfaceExtension = ".cs";
 
-            string interfaceFullPath = projectPath + "\\" + interfaceName;
+            string interfaceFullPath = string.Format(@"{0}\{1}{2}", projectPath, interfaceName, interfaceExtension);
 
             WebServiceGenerator.Generate(sd, interfaceFullPath);
             
             ProjectItems projectItems = project.ProjectItems;
             projectItems.AddFromFile(interfaceFullPath);
+
+            _implementInterface(project, interfaceName);
+
+            //Proje değişikliklerini kaydet
+            project.Save();
+        }
+
+        private void _implementInterface(Project project, string interfaceName)
+        {
+            CodeElements elements = _applicationObject.ActiveDocument.ProjectItem.FileCodeModel.CodeElements;
+
+            foreach (CodeElement element in elements)
+            {
+                if (element.Kind == vsCMElement.vsCMElementNamespace)
+                {
+                    CodeNamespace ns = (CodeNamespace)element;
+                    foreach (CodeElement elem in ns.Members)
+                    {
+                        if (elem is CodeClass)
+                        {
+                            ((CodeClass)elem).AddImplementedInterface("IGlobalWeatherSoap", 0);
+                        }
+                    }
+                }
+            }
         }
 
         /// <summary>Implements the OnDisconnection method of the IDTExtensibility2 interface. Receives notification that the Add-in is being unloaded.</summary>
