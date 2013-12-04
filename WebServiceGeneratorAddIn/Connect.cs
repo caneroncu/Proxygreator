@@ -140,7 +140,7 @@ namespace WebServiceGeneratorAddIn
                     {
                         if (elem is CodeClass)
                         {
-                            ((CodeClass)elem).AddImplementedInterface(interfaceName, 0);
+                            ((CodeClass)elem).AddImplementedInterface(interfaceName, -1);
                         }
                     }
                 }
