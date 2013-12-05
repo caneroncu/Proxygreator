@@ -39,6 +39,8 @@
             this.btnGenerate = new System.Windows.Forms.Button();
             this.tbWsdlAddress = new System.Windows.Forms.TextBox();
             this.lblWsdlAddress = new System.Windows.Forms.Label();
+            this.btnManual = new System.Windows.Forms.Button();
+            this.cbUseLink = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // lblSolutionPath
@@ -119,7 +121,7 @@
             // 
             this.tbWsdlAddress.Location = new System.Drawing.Point(30, 34);
             this.tbWsdlAddress.Name = "tbWsdlAddress";
-            this.tbWsdlAddress.Size = new System.Drawing.Size(397, 20);
+            this.tbWsdlAddress.Size = new System.Drawing.Size(328, 20);
             this.tbWsdlAddress.TabIndex = 1;
             // 
             // lblWsdlAddress
@@ -131,11 +133,34 @@
             this.lblWsdlAddress.TabIndex = 9;
             this.lblWsdlAddress.Text = "WSDL Address";
             // 
+            // btnManual
+            // 
+            this.btnManual.Location = new System.Drawing.Point(364, 31);
+            this.btnManual.Name = "btnManual";
+            this.btnManual.Size = new System.Drawing.Size(63, 23);
+            this.btnManual.TabIndex = 10;
+            this.btnManual.Text = "Manual";
+            this.btnManual.UseVisualStyleBackColor = true;
+            this.btnManual.Click += new System.EventHandler(this.btnManual_Click);
+            // 
+            // cbUseLink
+            // 
+            this.cbUseLink.AutoSize = true;
+            this.cbUseLink.Location = new System.Drawing.Point(363, 60);
+            this.cbUseLink.Name = "cbUseLink";
+            this.cbUseLink.Size = new System.Drawing.Size(64, 17);
+            this.cbUseLink.TabIndex = 11;
+            this.cbUseLink.Text = "Use link";
+            this.cbUseLink.UseVisualStyleBackColor = true;
+            this.cbUseLink.CheckedChanged += new System.EventHandler(this.cbUseLink_CheckedChanged);
+            // 
             // FrmProjectParams
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(458, 352);
+            this.Controls.Add(this.cbUseLink);
+            this.Controls.Add(this.btnManual);
             this.Controls.Add(this.tbWsdlAddress);
             this.Controls.Add(this.lblWsdlAddress);
             this.Controls.Add(this.btnGenerate);
@@ -155,6 +180,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Web Service Generator";
+            this.Load += new System.EventHandler(this.FrmProjectParams_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -173,5 +199,7 @@
         private System.Windows.Forms.Button btnGenerate;
         private System.Windows.Forms.TextBox tbWsdlAddress;
         private System.Windows.Forms.Label lblWsdlAddress;
+        private System.Windows.Forms.Button btnManual;
+        private System.Windows.Forms.CheckBox cbUseLink;
     }
 }

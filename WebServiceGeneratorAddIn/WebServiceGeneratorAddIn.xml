@@ -18,7 +18,7 @@
             <param term='addInInst'>Object representing this Add-in.</param>
             <seealso class='IDTExtensibility2' />
         </member>
-        <member name="M:WebServiceGeneratorAddIn.Connect.GenerateWebService(System.String,System.String,System.String,System.String,System.String)">
+        <member name="M:WebServiceGeneratorAddIn.Connect.GenerateWebService(System.String,System.String,System.String,System.String,System.String,System.String)">
             <summary>
             Verilen parametrelere göre otomatik olarak Web Service Solution'ı oluşturur.
             </summary>
@@ -65,6 +65,23 @@
             <param term='varOut'>Parameters passed from the command handler to the caller.</param>
             <param term='handled'>Informs the caller if the command was handled or not.</param>
             <seealso class='Exec' />
+        </member>
+        <member name="F:WebServiceGeneratorAddIn.UI.FrmManualWsdl.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:WebServiceGeneratorAddIn.UI.FrmManualWsdl.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:WebServiceGeneratorAddIn.UI.FrmManualWsdl.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
         </member>
         <member name="T:WebServiceGeneratorAddIn.UI.FrmProjectParams">
             <summary>

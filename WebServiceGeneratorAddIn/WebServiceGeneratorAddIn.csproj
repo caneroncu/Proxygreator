@@ -61,6 +61,12 @@
     <Compile Include="Connect.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="UI\FrmManualWsdl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmManualWsdl.Designer.cs">
+      <DependentUpon>FrmManualWsdl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\FrmProjectParams.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,6 +143,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="UI\FrmManualWsdl.resx">
+      <DependentUpon>FrmManualWsdl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\FrmProjectParams.resx">
       <DependentUpon>FrmProjectParams.cs</DependentUpon>
     </EmbeddedResource>

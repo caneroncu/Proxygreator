@@ -86,7 +86,8 @@ namespace WebServiceGeneratorAddIn
         /// <param name="solutionName"></param>
         /// <param name="projectName"></param>
         /// <param name="templatePath"></param>
-        public void GenerateWebService(string wsdlAddress, string solutionPath, string solutionName, string projectName, string templatePath)
+        public void GenerateWebService(string solutionPath, string solutionName, string projectName, string templatePath,
+            string wsdlAddress = null, string content = null)
         {
             string projectPath = solutionPath + projectName;
             string interfaceName = null;
@@ -107,7 +108,12 @@ namespace WebServiceGeneratorAddIn
             project = solution.Projects.Item(1);
             solution.SaveAs(solutionName);
 
-            ServiceDescription sd = WebServiceGenerator.GetServiceDescription(new Uri(wsdlAddress));
+            ServiceDescription sd = null;
+
+            if(wsdlAddress != null)
+                sd = WebServiceGenerator.GetServiceDescriptionFromAddress(new Uri(wsdlAddress));
+            else
+                sd = WebServiceGenerator.GetServiceDescriptionFromParameter(content);
 
             //Interface adı I<ServisAdı> olarak çıkıyor, kaydederken extension'u da ekliyoruz
             interfaceName = string.Format("I{0}", sd.Bindings[0].Name);

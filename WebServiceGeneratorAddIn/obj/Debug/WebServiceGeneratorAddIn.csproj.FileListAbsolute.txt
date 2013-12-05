@@ -1,11 +1,12 @@
 D:\VS 2012 Projects\WebServiceGeneratorAddIn\WebServiceGeneratorAddIn\bin\Debug\WebServiceGeneratorAddIn.dll
 D:\VS 2012 Projects\WebServiceGeneratorAddIn\WebServiceGeneratorAddIn\bin\Debug\WebServiceGeneratorAddIn.pdb
 D:\VS 2012 Projects\WebServiceGeneratorAddIn\WebServiceGeneratorAddIn\bin\Debug\WebServiceGeneratorAddIn.xml
-D:\VS 2012 Projects\WebServiceGeneratorAddIn\WebServiceGeneratorAddIn\obj\Debug\WebServiceGeneratorAddIn.csproj.ResolveComReference.cache
-D:\VS 2012 Projects\WebServiceGeneratorAddIn\WebServiceGeneratorAddIn\obj\Debug\WebServiceGeneratorAddIn.dll
-D:\VS 2012 Projects\WebServiceGeneratorAddIn\WebServiceGeneratorAddIn\obj\Debug\WebServiceGeneratorAddIn.pdb
-D:\VS 2012 Projects\WebServiceGeneratorAddIn\WebServiceGeneratorAddIn\obj\Debug\WebServiceGeneratorAddIn.csprojResolveAssemblyReference.cache
-D:\VS 2012 Projects\WebServiceGeneratorAddIn\WebServiceGeneratorAddIn\bin\Debug\WebServiceGenerator.pdb
 D:\VS 2012 Projects\WebServiceGeneratorAddIn\WebServiceGeneratorAddIn\bin\Debug\WebServiceGenerator.dll
+D:\VS 2012 Projects\WebServiceGeneratorAddIn\WebServiceGeneratorAddIn\bin\Debug\WebServiceGenerator.pdb
+D:\VS 2012 Projects\WebServiceGeneratorAddIn\WebServiceGeneratorAddIn\obj\Debug\WebServiceGeneratorAddIn.csprojResolveAssemblyReference.cache
+D:\VS 2012 Projects\WebServiceGeneratorAddIn\WebServiceGeneratorAddIn\obj\Debug\WebServiceGeneratorAddIn.csproj.ResolveComReference.cache
+D:\VS 2012 Projects\WebServiceGeneratorAddIn\WebServiceGeneratorAddIn\obj\Debug\WebServiceGeneratorAddIn.UI.FrmManualWsdl.resources
 D:\VS 2012 Projects\WebServiceGeneratorAddIn\WebServiceGeneratorAddIn\obj\Debug\WebServiceGeneratorAddIn.UI.FrmProjectParams.resources
 D:\VS 2012 Projects\WebServiceGeneratorAddIn\WebServiceGeneratorAddIn\obj\Debug\WebServiceGeneratorAddIn.csproj.GenerateResource.Cache
+D:\VS 2012 Projects\WebServiceGeneratorAddIn\WebServiceGeneratorAddIn\obj\Debug\WebServiceGeneratorAddIn.dll
+D:\VS 2012 Projects\WebServiceGeneratorAddIn\WebServiceGeneratorAddIn\obj\Debug\WebServiceGeneratorAddIn.pdb
