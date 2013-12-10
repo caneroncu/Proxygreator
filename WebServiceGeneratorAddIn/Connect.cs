@@ -12,6 +12,7 @@ using System.Web.Services;
 using System.Web.Services.Description;
 using System.IO;
 using WebServiceGeneratorAddIn.UI;
+using System.Collections.Generic;
 
 namespace WebServiceGeneratorAddIn
 {
@@ -110,7 +111,7 @@ namespace WebServiceGeneratorAddIn
 
             ServiceDescription sd = null;
 
-            if(wsdlAddress != null)
+            if (wsdlAddress != null)
                 sd = WebServiceGenerator.GetServiceDescriptionFromAddress(new Uri(wsdlAddress));
             else
                 sd = WebServiceGenerator.GetServiceDescriptionFromParameter(content);
@@ -120,16 +121,26 @@ namespace WebServiceGeneratorAddIn
             interfaceExtension = ".cs";
 
             string interfaceFullPath = string.Format(@"{0}\{1}{2}", projectPath, interfaceName, interfaceExtension);
-
-            WebServiceGenerator.Generate(sd, interfaceFullPath);
+            string currentNamespace = project.Name;
+            WebServiceGenerator.Generate(sd, interfaceFullPath, ServiceDescriptionImportStyle.ServerInterface, currentNamespace);
 
             ProjectItems projectItems = project.ProjectItems;
             projectItems.AddFromFile(interfaceFullPath);
 
             implementInterface(project, interfaceName);
 
+            string proxyFullPath = string.Format(@"{0}\{1}Proxy.cs", projectPath, sd.Bindings[0].Name);
+            createProxy(project, sd, proxyFullPath);
+
             //Proje değişikliklerini kaydet
             project.Save();
+        }
+
+        private void createProxy(Project project, ServiceDescription serviceDescription, string proxyFullPath)
+        {
+            string currentNamespace = project.Name;
+            WebServiceGenerator.Generate(serviceDescription, proxyFullPath, ServiceDescriptionImportStyle.Client, currentNamespace);
+            project.ProjectItems.AddFromFile(proxyFullPath);
         }
 
         private void implementInterface(Project project, string interfaceName)
